@@ -18,6 +18,8 @@ view: d_dates {
   }
 
   dimension: datekey {
+    primary_key: yes
+    label: "DateKey"
     type: number
     sql: ${TABLE}."DATEKEY" ;;
   }

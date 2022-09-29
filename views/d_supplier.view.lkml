@@ -33,6 +33,8 @@ view: d_supplier {
   }
 
   dimension: s_suppkey {
+    primary_key: yes
+    label: "SupplierKey"
     type: number
     sql: ${TABLE}."S_SUPPKEY" ;;
   }

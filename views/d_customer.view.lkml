@@ -8,6 +8,8 @@ view: d_customer {
   }
 
   dimension: c_custkey {
+    primary_key: yes
+    label: "CustomerKey"
     type: number
     sql: ${TABLE}."C_CUSTKEY" ;;
   }

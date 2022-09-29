@@ -18,6 +18,8 @@ view: f_lineitems {
   }
 
   dimension: l_custkey {
+    label: "CustomerKey"
+    description: "foreign_key_for_customers"
     type: number
     sql: ${TABLE}."L_CUSTKEY" ;;
   }
@@ -38,6 +40,8 @@ view: f_lineitems {
   }
 
   dimension: l_orderdatekey {
+    label: "OrderDate"
+    description: "foreign_key_for_dates"
     type: number
     sql: ${TABLE}."L_ORDERDATEKEY" ;;
   }
@@ -58,6 +62,8 @@ view: f_lineitems {
   }
 
   dimension: l_partkey {
+    label: "PartKey"
+    description: "foreign_key_for_parts"
     type: number
     sql: ${TABLE}."L_PARTKEY" ;;
   }
@@ -98,6 +104,8 @@ view: f_lineitems {
   }
 
   dimension: l_suppkey {
+    label: "SupplierKey"
+    description: "foreign_key_for_suppliers"
     type: number
     sql: ${TABLE}."L_SUPPKEY" ;;
   }
@@ -121,4 +129,29 @@ view: f_lineitems {
     type: count
     drill_fields: []
   }
+
+  measure: TotalSalesPrice {
+    label: "Total Sales"
+    type: sum
+    description: "Total sales of ordered products (USD)"
+    sql: ${l_extendedprice} ;; #value used in the sum function
+    value_format_name: usd
+  }
+
+  measure: AverageSalesPrice{
+    label: "Average Price"
+    type: average
+    description: "Average price of ordered products (USD)"
+    sql: ${l_extendedprice} ;;
+    value_format_name: usd
+  }
+
+  measure: CumulativeSales{
+    label: "Cumulative Sales"
+    type: running_total
+    description: "Cumulative sales of ordered products (USD), equivalent to Running Total"
+    sql: ${l_extendedprice} ;;
+    value_format_name: usd
+  }
+
 }
