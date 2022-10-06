@@ -167,23 +167,78 @@ view: f_lineitems {
     type: sum
     description: "Total sales to russian customers (USD)"
     sql: ${l_extendedprice} ;; #value used in the sum function
-    filters: [l_shipmode: "AIR"]
+    filters: [d_customer.c_nation:"RUSSIA"]
+    value_format_name: usd
+  }
+  measure: TotalGrossRevenue {
+    label: "Total Gross Revenue (USD)"
+    type: sum
+    description: "Total price of completed sales (USD)"
+    sql: ${l_extendedprice} ;;    #value used in the sum function
+    filters: [l_orderstatus: "F"]  # assuming that "F" status is showing "Completed" orders"
+    value_format_name: usd
+  }
+  measure: TotalCost {
+    label: "Total Cost (USD)"
+    type: sum
+    description: "Total Cost of ordered items (USD)"
+    sql: ${l_supplycost} ;;    #value used in the sum function
     value_format_name: usd
   }
 
+  measure: GrossMargin {
+    label: "Total Gross Margin Amount (USD)"
+    type: number
+    description: "Total Gross Margin Amount (USD) = Total Gross Revenue – Total Cost (USD)"
+    sql: ${TotalGrossRevenue}-${TotalCost} ;;
+    value_format_name: usd
+  }
 
+  measure: GrossMargin_percentage {
+    label: "Total Gross Margin (%)"
+    type: number
+    description: "Total Gross Margin (%) = Total Gross Margin Amount / Total Gross Revenue"
+    sql: ${GrossMargin}/NULLIF(${TotalGrossRevenue},0);; # error handling: if TotalGrossRevenue is 0 - we get null for this line
+    value_format_name: percent_2
+  }
 
+  measure: ItemsReturned {
+    label: "# Items Returned"
+    type: sum
+    description: "Number of items that were returned by dissatisfied customers"
+    sql: ${l_quantity};;
+    filters: [l_returnflag: "R"]
+  }
 
+  measure: TotalItemsSold{
+    label: "# Total Items Sold"
+    type: sum
+    description: "Total Number of Items Sold  Number of items that were sold"
+    sql: ${l_quantity};;
+  }
 
+  measure: ReturnRate {
+    label: "Items Return Rate"
+    type: number
+    description: "Item Return Rate = Number Of Items Returned / Total Number Of Items Sold"
+    sql: ${ItemsReturned}/NULLIF(${TotalItemsSold},0);;
+    value_format_name: percent_2
+  }
 
+  measure: CustomersCount {
+    label: "# Customers"
+    type: count_distinct
+    description: "Number of Customers who made at least one purchase"
+    sql: ${l_custkey};;
+  }
 
-
-
-
-
-
-
-
+  measure: AverageSpent_Customer{
+    label: "Average Spend/Customer (USD)"
+    type: number
+    description: "Average Spend per Customer = Total Sales / Total Number of Customers"
+    sql: ${TotalSales}/NULLIF(${CustomersCount},0);;
+    value_format_name: percent_2
+  }
 
 
 
