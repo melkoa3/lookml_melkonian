@@ -42,6 +42,7 @@ view: f_lineitems {
   }
 
   dimension: l_orderdatekey {
+    group_label: "Order Details"
     label: "OrderDate"
     description: "foreign_key_for_dates"
     type: number
@@ -49,16 +50,19 @@ view: f_lineitems {
   }
 
   dimension: l_orderkey {
+    group_label: "Order Details"
     type: number
     sql: ${TABLE}."L_ORDERKEY" ;;
   }
 
   dimension: l_orderpriority {
+    group_label: "Order Details"
     type: string
     sql: ${TABLE}."L_ORDERPRIORITY" ;;
   }
 
   dimension: l_orderstatus {
+    group_label: "Order Details"
     type: string
     sql: ${TABLE}."L_ORDERSTATUS" ;;
   }
@@ -86,21 +90,25 @@ view: f_lineitems {
   }
 
   dimension: l_shipdatekey {
+    group_label: "Shipment details"
     type: number
     sql: ${TABLE}."L_SHIPDATEKEY" ;;
   }
 
   dimension: l_shipinstruct {
+    group_label: "Shipment details"
     type: string
     sql: ${TABLE}."L_SHIPINSTRUCT" ;;
   }
 
   dimension: l_shipmode {
+    group_label: "Shipment details"
     type: string
     sql: ${TABLE}."L_SHIPMODE" ;;
   }
 
   dimension: l_shippriority {
+    group_label: "Shipment details"
     type: number
     sql: ${TABLE}."L_SHIPPRIORITY" ;;
   }
@@ -119,6 +127,7 @@ view: f_lineitems {
   }
 
   dimension: l_tax {
+    group_label: "Pricing and costs"
     type: number
     sql: ${TABLE}."L_TAX" ;;
   }
