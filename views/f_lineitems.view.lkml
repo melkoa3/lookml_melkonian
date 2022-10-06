@@ -25,11 +25,13 @@ view: f_lineitems {
   }
 
   dimension: l_discount {
+    group_label: "Pricing and costs"
     type: number
     sql: ${TABLE}."L_DISCOUNT" ;;
   }
 
   dimension: l_extendedprice {
+    group_label: "Pricing and costs"
     type: number
     sql: ${TABLE}."L_EXTENDEDPRICE" ;;
   }
@@ -111,6 +113,7 @@ view: f_lineitems {
   }
 
   dimension: l_supplycost {
+    group_label: "Pricing and costs"
     type: number
     sql: ${TABLE}."L_SUPPLYCOST" ;;
   }
@@ -121,6 +124,7 @@ view: f_lineitems {
   }
 
   dimension: l_totalprice {
+    group_label: "Pricing and costs"
     type: number
     sql: ${TABLE}."L_TOTALPRICE" ;;
   }
