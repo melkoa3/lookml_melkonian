@@ -11,7 +11,7 @@ datagroup: lookml_melkonian_default_datagroup {
 persist_with: lookml_melkonian_default_datagroup
 
 explore: f_lineitems {
-  label: "Order_Analysis"
+  label: "_Order_Analytics"
   view_label: "Ordered_Items"
 
   join:  d_part {

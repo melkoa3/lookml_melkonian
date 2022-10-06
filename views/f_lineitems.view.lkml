@@ -130,7 +130,7 @@ view: f_lineitems {
     drill_fields: []
   }
 
-  measure: TotalSalesPrice {
+  measure: TotalSales{
     label: "Total Sales"
     type: sum
     description: "Total sales of ordered products (USD)"
@@ -139,7 +139,7 @@ view: f_lineitems {
   }
 
   measure: AverageSalesPrice{
-    label: "Average Price"
+    label: "Average Price (USD)"
     type: average
     description: "Average price of ordered products (USD)"
     sql: ${l_extendedprice} ;;
@@ -147,11 +147,58 @@ view: f_lineitems {
   }
 
   measure: CumulativeSales{
-    label: "Cumulative Sales"
+    label: "Cumulative Sales (USD)"
     type: running_total
     description: "Cumulative sales of ordered products (USD), equivalent to Running Total"
     sql: ${l_extendedprice} ;;
     value_format_name: usd
   }
+
+  measure: TotalSales_Air {
+    label: "Total Sales (USD) shipped by air"
+    type: sum
+    description: "Total sales of products shipped by air (USD)"
+    sql: ${l_extendedprice} ;; #value used in the sum function
+    filters: [l_shipmode: "AIR"]
+    value_format_name: usd
+  }
+  measure: TotalSalesPrice_Russia {
+    label: "Total Sales of Russia"
+    type: sum
+    description: "Total sales to russian customers (USD)"
+    sql: ${l_extendedprice} ;; #value used in the sum function
+    filters: [l_shipmode: "AIR"]
+    value_format_name: usd
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
