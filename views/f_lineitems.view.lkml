@@ -3,21 +3,25 @@ view: f_lineitems {
     ;;
 
   dimension: l_availqty {
+    group_label: "03_Quantity"
     type: number
     sql: ${TABLE}."L_AVAILQTY" ;;
   }
 
   dimension: l_clerk {
+    group_label: "05_Other"
     type: string
     sql: ${TABLE}."L_CLERK" ;;
   }
 
   dimension: l_commitdatekey {
+    group_label: "05_Other"
     type: number
     sql: ${TABLE}."L_COMMITDATEKEY" ;;
   }
 
   dimension: l_custkey {
+    group_label: "05_Other"
     label: "CustomerKey"
     description: "foreign_key_for_customers"
     type: number
@@ -25,24 +29,25 @@ view: f_lineitems {
   }
 
   dimension: l_discount {
-    group_label: "Pricing and costs"
+    group_label: "02_Pricing and costs"
     type: number
     sql: ${TABLE}."L_DISCOUNT" ;;
   }
 
   dimension: l_extendedprice {
-    group_label: "Pricing and costs"
+    group_label: "02_Pricing and costs"
     type: number
     sql: ${TABLE}."L_EXTENDEDPRICE" ;;
   }
 
   dimension: l_linenumber {
+    group_label: "05_Other"
     type: number
     sql: ${TABLE}."L_LINENUMBER" ;;
   }
 
   dimension: l_orderdatekey {
-    group_label: "Order Details"
+    group_label: "01_Order Details"
     label: "OrderDate"
     description: "foreign_key_for_dates"
     type: number
@@ -50,24 +55,25 @@ view: f_lineitems {
   }
 
   dimension: l_orderkey {
-    group_label: "Order Details"
+    group_label: "01_Order Details"
     type: number
     sql: ${TABLE}."L_ORDERKEY" ;;
   }
 
   dimension: l_orderpriority {
-    group_label: "Order Details"
+    group_label: "01_Order Details"
     type: string
     sql: ${TABLE}."L_ORDERPRIORITY" ;;
   }
 
   dimension: l_orderstatus {
-    group_label: "Order Details"
+    group_label: "01_Order Details"
     type: string
     sql: ${TABLE}."L_ORDERSTATUS" ;;
   }
 
   dimension: l_partkey {
+    group_label: "05_Other"
     label: "PartKey"
     description: "foreign_key_for_parts"
     type: number
@@ -75,45 +81,49 @@ view: f_lineitems {
   }
 
   dimension: l_quantity {
+    group_label: "03_Quantity"
     type: number
     sql: ${TABLE}."L_QUANTITY" ;;
   }
 
   dimension: l_receiptdatekey {
+    group_label: "05_Other"
     type: number
     sql: ${TABLE}."L_RECEIPTDATEKEY" ;;
   }
 
   dimension: l_returnflag {
+    group_label: "01_Order Details"
     type: string
     sql: ${TABLE}."L_RETURNFLAG" ;;
   }
 
   dimension: l_shipdatekey {
-    group_label: "Shipment details"
+    group_label: "04_Shipment details"
     type: number
     sql: ${TABLE}."L_SHIPDATEKEY" ;;
   }
 
   dimension: l_shipinstruct {
-    group_label: "Shipment details"
+    group_label: "04_Shipment details"
     type: string
     sql: ${TABLE}."L_SHIPINSTRUCT" ;;
   }
 
   dimension: l_shipmode {
-    group_label: "Shipment details"
+    group_label: "04_Shipment details"
     type: string
     sql: ${TABLE}."L_SHIPMODE" ;;
   }
 
   dimension: l_shippriority {
-    group_label: "Shipment details"
+    group_label: "04_Shipment details"
     type: number
     sql: ${TABLE}."L_SHIPPRIORITY" ;;
   }
 
   dimension: l_suppkey {
+    group_label: "05_Other"
     label: "SupplierKey"
     description: "foreign_key_for_suppliers"
     type: number
@@ -121,19 +131,19 @@ view: f_lineitems {
   }
 
   dimension: l_supplycost {
-    group_label: "Pricing and costs"
+    group_label: "02_Pricing and costs"
     type: number
     sql: ${TABLE}."L_SUPPLYCOST" ;;
   }
 
   dimension: l_tax {
-    group_label: "Pricing and costs"
+    group_label: "02_Pricing and costs"
     type: number
     sql: ${TABLE}."L_TAX" ;;
   }
 
   dimension: l_totalprice {
-    group_label: "Pricing and costs"
+    group_label: "02_Pricing and costs"
     type: number
     sql: ${TABLE}."L_TOTALPRICE" ;;
   }

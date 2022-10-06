@@ -12,28 +12,28 @@ persist_with: lookml_melkonian_default_datagroup
 
 explore: f_lineitems {
   label: "Order Analytics"
-  view_label: "00_Ordered_Items"
+  view_label: "0_Ordered_Items"
 
   join:  d_part {
-        view_label: "03_Parts details"
+        view_label: "1_Parts details"
         type: left_outer
         sql_on: ${f_lineitems.l_partkey}=${d_part.p_partkey} ;;
         relationship: many_to_one
   }
   join:  d_customer {
-    view_label: "01_Customers Details"
+    view_label: "2_Customers Details"
     type: left_outer
     sql_on: ${f_lineitems.l_custkey}=${d_customer.c_custkey};;
     relationship: many_to_one
 }
   join: d_supplier {
-    view_label: "02_Suppliers Details"
+    view_label: "3_Suppliers Details"
     type: left_outer
     sql_on: ${f_lineitems.l_suppkey}=${d_supplier.s_suppkey} ;;
     relationship: many_to_one
   }
   join: d_dates {
-    view_label: "04_Order Dates"
+    view_label: "4_Order Dates"
     type: left_outer
     sql_on: ${f_lineitems.l_orderdatekey}=${d_dates.datekey} ;;
     relationship: many_to_one
