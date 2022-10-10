@@ -57,6 +57,7 @@ view: f_lineitems {
   dimension: l_orderkey {
     group_label: "01_Order Details"
     type: number
+    primary_key: yes
     sql: ${TABLE}."L_ORDERKEY" ;;
   }
 
