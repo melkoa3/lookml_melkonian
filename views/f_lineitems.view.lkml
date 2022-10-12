@@ -186,6 +186,16 @@ view: f_lineitems {
     filters: [l_shipmode: "AIR"]
     value_format_name: usd
   }
+
+  measure: TotalSales_1911{
+    label: "Total Sales (USD) - 1st January 1995"
+    type: sum
+    description: "Total sales of products ordered on the 1st January 1995 (USD)"
+    sql: ${l_extendedprice} ;; #value used in the sum function
+    filters: [l_orderdatekey: "1911"]
+    value_format_name: usd
+  }
+
   measure: TotalSalesPrice_Russia {
     label: "Total Sales of Russia"
     type: sum
