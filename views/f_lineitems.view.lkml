@@ -251,6 +251,15 @@ view: f_lineitems {
     sql: ${l_quantity};;
   }
 
+  measure: TotalOrders_1911{
+    label: "Total Orders - 1st January 1995"
+    type: sum
+    description: "Total number of Items ordered on the 1st January 1995"
+    sql: ${l_quantity} ;; #value used in the sum function
+    filters: [l_orderdatekey: "1911"]
+    value_format_name: usd
+  }
+
   measure: ReturnRate {
     label: "Items Return Rate"
     type: number
