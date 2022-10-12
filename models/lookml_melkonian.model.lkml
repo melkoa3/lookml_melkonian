@@ -13,9 +13,7 @@ persist_with: lookml_melkonian_default_datagroup
 explore: f_lineitems {
   label: "Order Analytics"
   view_label: "0_Ordered_Items"
-  always_filter: {
-    filters: [d_dates.year: "1995"] # filter added to limit the whole model to only show the year 1995
-  }
+
 
   join:  d_part {
         view_label: "1_Parts details"
