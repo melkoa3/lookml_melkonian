@@ -115,7 +115,7 @@ view: f_lineitems {
     group_label: "04_Shipment details"
     type: string
     sql: ${TABLE}."L_SHIPMODE" ;;
-    drill_fields: [l_shipmode,d_supplier.Supplier_Cohort,d_supplier.s_region]
+    drill_fields: [d_supplier.Supplier_Cohort,d_supplier.s_region]
   }
 
   dimension: l_shippriority {
