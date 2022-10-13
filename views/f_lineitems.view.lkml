@@ -210,6 +210,7 @@ view: f_lineitems {
     description: "Total price of completed sales (USD)"
     sql: ${l_extendedprice} ;;    #value used in the sum function
     filters: [l_orderstatus: "F"]  # assuming that "F" status is showing "Completed" orders"
+    drill_fields: [d_supplier.Supplier_Cohort,d_supplier.s_region]
     value_format_name: usd
   }
   measure: TotalCost {
