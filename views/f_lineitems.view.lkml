@@ -211,14 +211,14 @@ view: f_lineitems {
     sql: ${l_extendedprice} ;;    #value used in the sum function
     filters: [l_orderstatus: "F"]  # assuming that "F" status is showing "Completed" orders"
     drill_fields: [d_supplier.Supplier_Cohort,d_supplier.s_region]
-    value_format_name: usd
+    value_format_name: usd_0
   }
   measure: TotalCost {
     label: "Total Cost (USD)"
     type: sum
     description: "Total Cost of ordered items (USD)"
     sql: ${l_supplycost} ;;    #value used in the sum function
-    value_format_name: usd
+    value_format_name: usd_0
   }
 
   measure: GrossMargin {
