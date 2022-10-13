@@ -286,6 +286,13 @@ view: f_lineitems {
     value_format_name: percent_2
   }
 
+  measure: Completness_rate{
+    label: "Completness_rate"
+    type: number
+    description: "Completness_rate = Total Gross Revenue / Total Sales"
+    sql: ${TotalGrossRevenue}/NULLIF(${TotalSales},0);;
+    value_format_name: percent_2
+  }
 
 
 
