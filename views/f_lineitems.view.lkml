@@ -113,6 +113,7 @@ view: f_lineitems {
 
   dimension: l_shipmode {
     group_label: "04_Shipment details"
+    label: "Ship mode"
     type: string
     sql: ${TABLE}."L_SHIPMODE" ;;
     drill_fields: [d_supplier.Supplier_Cohort,d_supplier.s_region]
@@ -211,8 +212,10 @@ view: f_lineitems {
     description: "Total price of completed sales (USD)"
     sql: ${l_extendedprice} ;;    #value used in the sum function
     filters: [l_orderstatus: "F"]  # assuming that "F" status is showing "Completed" orders"
+    drill_fields: [d_supplier.Supplier_Cohort,d_supplier.s_region]
     value_format_name: usd_0
   }
+
   measure: TotalCost {
     label: "Total Cost (USD)"
     type: sum
