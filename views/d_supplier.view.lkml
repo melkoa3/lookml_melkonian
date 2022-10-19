@@ -15,6 +15,12 @@ view: d_supplier {
   dimension: s_name {
     type: string
     sql: ${TABLE}."S_NAME" ;;
+    link: {
+      label: "Google"
+      url: "http://www.google.com/search?q={{ value }}"
+      icon_url: "http://google.com/favicon.ico"
+    }
+    html: <b><center><font size="2" color="#173589" >{{value}}</font></center></b> ;;
   }
 
   dimension: s_nation {
